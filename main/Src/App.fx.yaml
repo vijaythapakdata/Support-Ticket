@@ -1,0 +1,20 @@
+App As appinfo:
+    BackEnabled: =true
+    OnStart: |-
+        =Set(
+            varTicketId,
+            LookUp(
+                'Support Ticket',
+                ID = Value(Param("supportTicket"))
+            )
+        );
+        If(!IsBlank(varTicketId),ViewForm(Form1))
+    Theme: =PowerAppsTheme
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
